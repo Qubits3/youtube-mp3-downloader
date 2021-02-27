@@ -1,10 +1,15 @@
 from __future__ import unicode_literals
 import youtube_dl
-print("Insert the link")
-link = input ("")
+
+num_array = ["https://www.youtube.com/watch?v=4dtZ4TvftlU",
+             "https://www.youtube.com/watch?v=bmQwZhcZkbU"]
+
+# print("Insert the link")
+# link = input("")
 
 ydl_opts = {
     'format': 'bestaudio/best',
+    'outtmpl': 'C:/Users/%USERNAME%/Desktop/Music/%(title)s.%(ext)s',
     'postprocessors': [{
         'key': 'FFmpegExtractAudio',
         'preferredcodec': 'mp3',
@@ -13,6 +18,4 @@ ydl_opts = {
 }
 
 with youtube_dl.YoutubeDL(ydl_opts) as ydl:
-    ydl.download([link])
-
-print("Contact me on discord for any problem: https://discord.gg/BgjwgWx")
+    ydl.download(num_array)
